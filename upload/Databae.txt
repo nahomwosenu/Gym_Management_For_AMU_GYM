@@ -1,0 +1,217 @@
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+
+CREATE TABLE `member` (
+  
+`member_id` int(11) NOT NULL AUTO_INCREMENT,
+  
+`fname` varchar(30) NOT NULL,
+  
+`lname` varchar(30) NOT NULL,
+  
+`user_id` varchar(12) NOT NULL,
+ 
+`phone` varchar(15) NOT NULL,
+ 
+`user_type` varchar(20) NOT NULL,
+ 
+`username` varchar(20) NOT NULL,
+  
+`password` varchar(20) NOT NULL,
+ 
+PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9;
+
+INSERT INTO `member` (`member_id`, `fname`, `lname`, `user_id`, `phone`, `user_type`, `username`, `password`)VALUES
+(9, 'Aman', 'kinde', '123456', '091085623', 'admin', 'admin', '123');
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+
+CREATE TABLE `comment` (
+ 
+`m_id` int(10) NOT NULL AUTO_INCREMENT,
+ 
+`fname` varchar(50) NOT NULL,
+ 
+`email` varchar(25) NOT NULL,
+  
+`message` varchar(500) NOT NULL,
+  
+`date` varchar(20) NOT NULL,
+  
+`status` varchar(10) NOT NULL,
+  
+PRIMARY KEY (`m_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2;
+
+
+
+INSERT INTO `comment` (`m_id`, `fname`, `email`, `message`, `date`) VALUES
+
+(2, 'ddgljg', 'lslkddhglk@yahoo.com', 'kdhjfskdghjdkjhkjh', '10/06/2016');
+
+
+
+
+CREATE TABLE`course` (
+  
+`c_id` int(11) NOT NULL AUTO_INCREMENT,
+  
+`course_title` varchar(35) NOT NULL,
+  
+`course_code` varchar(10) NOT NULL,
+ 
+`credit_hour` int(2) NOT NULL,
+
+`teacher` varchar(25) NOT NULL,
+
+`department` varchar(30) NOT NULL,
+
+`section` int(1) NOT NULL,
+ 
+`batch` varchar(8) NOT NULL,
+ 
+`status` varchar(12) NOT NULL,
+  
+PRIMARY KEY (`c_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+
+
+
+INSERT INTO `course` (`c_id`, `course_title`, `course_code`, `credit_hour`, `teacher`, `department`, `section`, `batch`)VALUES 
+
+(20, 'c++', 'ITel12', 5, 'Amare', 'CSIT', 2, '1'),
+
+(21, 'JAVA', 'ITE12', 4, 'Getahun', 'CSIT', 2, '3'),
+
+(22, 'IP', 'ITel21', 5, 'Amin', 'CSIT', 2, '3'),
+
+(23, 'math', 'so12', 1, 'almaz', 'geography', 1, '2'),
+
+(24, 'hi', 'its', 4, 'chala', 'geography', 1, '1'),
+
+(25, 'civic', 'its', 3, 'ansalu', 'csit', 1, '4'),
+
+(26, 'hci', 'cop', 4, 'nuni', 'csit', 1, '4'),
+
+(27, 'wirless', 'comp', 3, 'endeshaw', 'csit', 1, '4'),
+
+(28, 'networking', '0p2', 3, 'yhun', 'csit', 1, '1'),
+
+(29, 'ip', 'zbcjc', 3, 'maf', 'csit', 1, '4'),
+
+(30, 'dekfdd', 'fmlb,', 5, 'kkb', 'csit', 3, '2'),
+
+(31, 'java', 'qhhr', 3, 'ded', 'csit', 1, '1');
+
+
+
+
+CREATE TABLE`department` (
+  
+`d_id` int(11) NOT NULL AUTO_INCREMENT,
+  
+`dname` varchar(25) NOT NULL,
+  `dhead` varchar(25) NOT NULL,
+  
+`college` varchar(25) NOT NULL,
+  PRIMARY KEY (`d_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT =9;
+
+
+
+INSERT INTO `department` (`d_id`, `dname`, `dhead`, `college`) VALUES
+
+(9, 'csit', 'habtamu', 'cncs'),
+
+(11, 'Physics', 'kebede', 'cncs'),
+
+(12, 'Information System', 'Eyouel', 'cncs'),
+
+(13, 'History', 'Kebede', 'Social'),
+
+(14,'geography', 'Abebe', 'Social'),
+
+(15, 'health', 'asri', 'otther health'),
+
+(16, 'sococial since', 'abyot', 'scs');
+
+
+
+
+CREATE TABLE `room` (
+  
+`room_no` varchar(10) NOT NULL,
+  
+`building` varchar(20) NOT NULL,
+  
+`status` varchar(15) NOT NULL,
+  
+PRIMARY KEY (`room_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `room` (`room_no`, `building`) VALUES
+
+('12', '58'),
+('13', '58');
+
+
+
+
+CREATE TABLE `schedule` (
+  
+`s_id` int(11) NOT NULL AUTO_INCREMENT,
+  
+`day` varchar(10) NOT NULL,
+  
+`t_start` varchar(5) NOT NULL,
+  
+`t_end` varchar(5) NOT NULL,
+  
+`semister` varchar(25) NOT NULL,
+  
+`c_title` varchar(10) NOT NULL,
+  
+`c_code` varchar(3) NOT NULL,
+  
+`c_hour` varchar(3) NOT NULL,
+  
+`department` varchar(30) NOT NULL,
+  
+`batch` varchar(5) NOT NULL,
+  
+`teacher` varchar(30) NOT NULL,
+  
+`section` varchar(8) NOT NULL,
+  
+`room_no` varchar(10) NOT NULL,
+  
+`building` varchar(10) NOT NULL,
+  
+`date` varchar(30) NOT NULL,
+  
+PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+
+
+
+INSERT INTO `schedule` (`s_id`, `day`, `t_start`, `t_end`, `semister`, `c_title`, `c_code`, `c_hour`, `department`, `batch`, `teacher`, `section`, `room_no`, `building`) VALUES
+
+(32, 'mon', '2:00',  '4:00', '1', 'IP', 'Itel12', '5', 'CSIT', '3', 'Amin', '2', 'LHJ_115', 'JBLOCK'),
+
+(33, 'mon', '8:00', '10:00', '1', 'Java', 'ITel123', '5', 'CSIT', '3', 'Getahun', '2', 'LHJ14', 'JBLOCK'),
+(34, 'Tue', '2:00', '5:00', '1', 'Networking', 'ITec23', '6', 'CSIT', '3', 'Amanuel', '2', 'LHJ113', 'JBLOCK'),
+
+(35, 'wen', '2:00', '3:00', '1', 'Event', 'ITec43', '5', 'CSIT', '3', 'Adissu', '2', 'LHJ113', 'JBLOCK'),
+
+(36, 'mon', '4:00', '6:00', '1', 'math', 'so1', '1', 'geography', '2', 'almaz', '1', '12', '58'),
+
+(37, 'mon', '2:00', '4:00', '2', 'civic', 'geo', '3', 'geography', '2', 'dani', '1', '12', '58'),
+
+(38, 'tue', '2:00', '3:00', '2', 'math', 'so1', '1', 'geography', '2', 'almaz', '1', '12', '58');
+
+
